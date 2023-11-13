@@ -1,4 +1,4 @@
-// import 'package:famhive/login_pages/login_page.dart';
+import 'package:famhive/login_pages/login_page.dart';
 import 'package:famhive/login_pages/register/register.dart';
 import 'package:famhive/login_pages/register/registered.dart';
 import 'package:famhive/login_pages/register/set_up/set_up_1.dart';
@@ -21,10 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: LoginPage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => const SetUp1(),
+        '/': (context) => const LoginPage(),
         '/resetPassword': (context) => const ResetPasswordPage(),
         '/createNewPassword': (context) => const CreateNewPassword(),
         '/resetSuccess': (context) => const ResetSuccessPage(),
