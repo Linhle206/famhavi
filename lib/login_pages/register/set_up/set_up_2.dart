@@ -15,6 +15,9 @@ class SetUp2 extends StatefulWidget {
 }
 
 class _SetUp2State extends State<SetUp2> {
+  final _emailController = TextEditingController();
+  final _nameController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
 
   bool selected1 = false;
@@ -47,8 +50,10 @@ class _SetUp2State extends State<SetUp2> {
                           text: 'YOUR SPOUSE\'s PROFILE',
                           size: 16,
                           align: TextAlign.center),
-                      const PersonCard(
+                      PersonCard(
                         enbleEmail: true,
+                        emailController: _emailController,
+                        nameController: _nameController,
                       )
                     ],
                   ),

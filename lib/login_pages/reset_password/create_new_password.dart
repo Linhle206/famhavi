@@ -15,6 +15,9 @@ class CreateNewPassword extends StatefulWidget {
 }
 
 class _CreateNewPasswordState extends State<CreateNewPassword> {
+  final _passwordController = TextEditingController();
+  final _confimPasswordController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
 
   @override
@@ -40,22 +43,24 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         const TextContent(text: 'Password'),
-                        const CustomTextField(
+                        CustomTextField(
                           text: 'Enter Password',
                           bottom: 10,
                           valudationCode: ValidationCode.password,
                           errorMessage:
                               'Password should contain Capital, small letter & Number & Special',
+                          controller: _passwordController,
                         ),
                         const TextContent(
                           text: 'Confirm Password',
                         ),
-                        const CustomTextField(
+                        CustomTextField(
                           text: 'Enter confirm password',
                           bottom: 30,
                           valudationCode: ValidationCode.password,
                           errorMessage:
                               'Password should contain Capital, small letter & Number & Special',
+                          controller: _confimPasswordController,
                         ),
                         CustomButton(
                           text: 'Create New Password',

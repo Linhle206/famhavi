@@ -7,10 +7,20 @@ import 'package:famhive/constants.dart';
 Color blue = AppColors.colorBlue;
 
 class PersonCard extends StatefulWidget {
-  const PersonCard({super.key, this.enbleEmail = false, this.emptyForm = true});
+  const PersonCard({
+    super.key,
+    this.enbleEmail = false,
+    this.emptyForm = true,
+    required this.nameController,
+    this.emailController = TextEditingController,
+  });
 
   final bool enbleEmail;
   final bool emptyForm;
+  final TextEditingController nameController;
+  // ignore: prefer_typing_uninitialized_variables
+  final emailController;
+  // final Widget email;
 
   @override
   State<PersonCard> createState() => _PersonCardState();
@@ -49,27 +59,30 @@ class _PersonCardState extends State<PersonCard> {
         CustomTextField(
           text: 'Enter his/ her name',
           empty: widget.emptyForm,
+          controller: widget.nameController,
         ),
-        Visibility(
-          visible: widget.enbleEmail,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const TextContent(text: 'Email Address', top: 20),
-              CustomTextField(
-                text: 'Enter his/ her email address',
-                valudationCode: ValidationCode.email,
-                errorMessage: 'Enter correc email',
-                empty: widget.emptyForm,
-              ),
-              const TextContent(
-                text: 'An invitation email will be sent after setting up',
-                top: 10,
-                weight: FontWeight.w400,
-              ),
-            ],
-          ),
-        ),
+        // widget.email,
+        // Visibility(
+        //   visible: widget.enbleEmail,
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.stretch,
+        //     children: [
+        //       const TextContent(text: 'Email Address', top: 20),
+        //       CustomTextField(
+        //         text: 'Enter his/ her email address',
+        //         valudationCode: ValidationCode.email,
+        //         errorMessage: 'Enter correc email',
+        //         empty: widget.emptyForm,
+        //         controller: widget.emailController,
+        //       ),
+        //       const TextContent(
+        //         text: 'An invitation email will be sent after setting up',
+        //         top: 10,
+        //         weight: FontWeight.w400,
+        //       ),
+        //     ],
+        //   ),
+        // ),
         const TextContent(
           text: 'Representative Color',
           top: 20,

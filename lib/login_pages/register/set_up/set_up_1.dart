@@ -15,6 +15,8 @@ class SetUp1 extends StatefulWidget {
 }
 
 class _SetUp1State extends State<SetUp1> {
+  final _nameController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
   bool selected1 = false;
   bool selected2 = false;
@@ -46,7 +48,9 @@ class _SetUp1State extends State<SetUp1> {
                           text: 'YOUR PROFILE',
                           size: 16,
                           align: TextAlign.center),
-                      const PersonCard()
+                      PersonCard(
+                        nameController: _nameController,
+                      )
                     ],
                   ),
                 ),

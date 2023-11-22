@@ -16,8 +16,14 @@ class SetUp3 extends StatefulWidget {
 
 class _SetUp3State extends State<SetUp3> {
   final _formkey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+
   List<Map<String, dynamic>> kidsList = [
-    {'tiatle': 'KID 1', 'name': '', 'color': ''}
+    {
+      'title': 'KID 1',
+      'name': '',
+      'color': '',
+    }
   ];
 
   @override
@@ -79,7 +85,9 @@ class _SetUp3State extends State<SetUp3> {
                             );
                           }
                           if (kidsList.length == 1) {
-                            return const PersonCard();
+                            return PersonCard(
+                              nameController: _nameController,
+                            );
                           }
                           return Column(
                             children: [
@@ -113,7 +121,9 @@ class _SetUp3State extends State<SetUp3> {
                                   ],
                                 ),
                               ),
-                              const PersonCard(),
+                              PersonCard(
+                                nameController: _nameController,
+                              ),
                             ],
                           );
                         },

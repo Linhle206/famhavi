@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
     this.valudationCode = r'^[a-z A-Z]+$',
     this.errorMessage = 'Enter correct name',
     this.empty = false,
+    required this.controller,
   });
   final String text;
   final double bottom;
@@ -16,12 +17,14 @@ class CustomTextField extends StatelessWidget {
   final String valudationCode;
   final String errorMessage;
   final bool empty;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: top, bottom: bottom),
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           hintText: text,
           errorMaxLines: 2,

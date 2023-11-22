@@ -14,6 +14,8 @@ class ResetPasswordPage extends StatefulWidget {
 }
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
+  final _emailController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
 
   @override
@@ -40,11 +42,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       const TextContent(
                         text: 'Email Address',
                       ),
-                      const CustomTextField(
+                      CustomTextField(
                         text: 'Enter your email address',
                         bottom: 25,
                         valudationCode: ValidationCode.email,
                         errorMessage: 'Enter correc email',
+                        controller: _emailController,
                       ),
                       CustomButton(
                         text: 'Send Instruction',

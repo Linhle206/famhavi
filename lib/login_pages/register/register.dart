@@ -14,6 +14,9 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final formkey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,20 +38,26 @@ class _RegisterState extends State<Register> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const TextContent(text: 'Email Address', top: 15),
-                  const CustomTextField(
+                  CustomTextField(
                     text: 'Enter your email address',
                     valudationCode: ValidationCode.email,
                     errorMessage: 'Enter correc email',
+                    controller: _emailController,
                   ),
                   const TextContent(text: 'Password', top: 20),
-                  const CustomTextField(
+                  CustomTextField(
                     text: 'Enter your password',
                     valudationCode: ValidationCode.password,
                     errorMessage:
                         'Password should contain Capital, small letter & Number & Special',
+                    controller: _passwordController,
                   ),
                   const TextContent(text: 'Name', top: 20),
-                  const CustomTextField(text: 'Enter your name', bottom: 25),
+                  CustomTextField(
+                    text: 'Enter your name',
+                    bottom: 25,
+                    controller: _nameController,
+                  ),
                   CustomButton(
                     text: 'Register',
                     onTap: () {

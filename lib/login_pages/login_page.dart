@@ -13,6 +13,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -39,10 +42,11 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const SizedBox(height: 10),
                   const TextContent(text: 'Email Address', top: 0),
-                  const CustomTextField(
+                  CustomTextField(
                     text: 'Enter your email',
                     valudationCode: ValidationCode.email,
                     errorMessage: 'Enter correct Email',
+                    controller: _emailController,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,12 +63,13 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  const CustomTextField(
+                  CustomTextField(
                     text: 'Enter your password',
                     bottom: 20,
                     valudationCode: ValidationCode.password,
                     errorMessage:
                         'Password should contain Capital, small letter & Number & Special',
+                    controller: _passwordController,
                   ),
                   CustomButton(
                     text: 'Login',
