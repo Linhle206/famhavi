@@ -15,8 +15,9 @@ dependencies:
 
 
   auto_size_text: ^3.0.0
-  cupertino_icons: ^1.0.2
-  easy_stepper: ^0.8.1
+  cupertino_icons: ^1.0.6
+  easy_stepper: ^0.8.2
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:

@@ -28,7 +28,7 @@ class TopBar extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: Color(0xffdbe0df),
               ),
-              child: Center(
+              child: const Center(
                 child: Icon(
                   Icons.chevron_left,
                   color: AppColors.contentColor,

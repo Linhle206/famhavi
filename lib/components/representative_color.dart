@@ -7,16 +7,17 @@ class RepresentativeColor extends StatelessWidget {
     required this.color,
     required this.selected,
   });
-  final onTap;
+  final dynamic onTap;
   final Color color;
   final bool selected;
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(right: 27),
+        margin: EdgeInsets.only(right: width * 0.06),
         width: 24,
         height: 24,
         decoration: BoxDecoration(

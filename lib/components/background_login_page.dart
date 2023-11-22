@@ -11,7 +11,7 @@ class BackgroundLoginPage extends StatelessWidget {
     // double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

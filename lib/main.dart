@@ -9,7 +9,7 @@ import 'package:famhive/login_pages/reset_password/reset_password_page.dart';
 import 'package:famhive/login_pages/reset_password/reset_success_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 

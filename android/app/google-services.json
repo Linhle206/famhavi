@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "452635057518",
+    "project_id": "famhive-1e992",
+    "storage_bucket": "famhive-1e992.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452635057518:android:5a834174caabe375b7757f",
+        "android_client_info": {
+          "package_name": "com.example.famhive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp0YWyokm1SjA00IeKJbhMWOpOeJzErAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

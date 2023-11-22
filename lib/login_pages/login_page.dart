@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:famhive/components/button.dart';
 import 'package:famhive/components/textFormField.dart';
 import 'package:famhive/components/text_content.dart';
 import 'package:famhive/constants.dart';
 import 'package:famhive/components/background_login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,10 +16,43 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String errorText = '';
+  bool visibleTextError = false;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
   final formkey = GlobalKey<FormState>();
+  final textkey = GlobalKey();
+  Future login(String email, String password) async {
+    try {
+      Response response = await post(
+          Uri.parse('https://api.famhive-dev.novahub.vn/${Url.login}'),
+          body: {
+            'email': email,
+            'password': password,
+          });
+      if (response.statusCode == 200) {
+        print('login');
+        setState(() {
+          visibleTextError = false;
+          errorText = '';
+        });
+        var accessToken = jsonDecode(response.body)['token']['accessToken'];
+        print(accessToken);
+        Url.token = accessToken;
+      }
+      if (response.statusCode == 404) {
+        setState(() {
+          visibleTextError = true;
+          errorText = 'The Email or Password is not correct';
+        });
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BackgroundLoginPage(
@@ -71,13 +107,27 @@ class _LoginPageState extends State<LoginPage> {
                         'Password should contain Capital, small letter & Number & Special',
                     controller: _passwordController,
                   ),
+                  Visibility(
+                    visible: visibleTextError,
+                    child: TextContent(
+                      text: errorText,
+                      weight: FontWeight.w400,
+                      top: 0,
+                    ),
+                  ),
+
+                  // login
                   CustomButton(
                     text: 'Login',
                     bottom: 10,
                     onTap: () {
                       if (formkey.currentState!.validate()) {
-                        //login
+                        login(
+                          _emailController.text,
+                          _passwordController.text,
+                        );
                       }
+                      Navigator.pushNamed(context, '/setUp1');
                     },
                   ),
                 ],
@@ -127,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                       onTap: () {
                         Navigator.pushNamed(context, '/register');
                       },
-                      child: TextContent(
+                      child: const TextContent(
                           text: 'Register Now', color: AppColors.mainColor),
                     ),
                   ],

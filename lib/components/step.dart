@@ -12,15 +12,15 @@ class StepPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasyStepper(
       activeStep: activeStep,
-      lineStyle: LineStyle(
+      lineStyle: const LineStyle(
         lineSpace: 0,
         lineLength: 130,
         lineType: LineType.normal,
         activeLineColor: AppColors.mainColor,
-        defaultLineColor: const Color(0xffdbe0df),
+        defaultLineColor: Color(0xffdbe0df),
         finishedLineColor: AppColors.mainColor,
         progress: 1,
-        progressColor: const Color(0xffdbe0df),
+        progressColor: Color(0xffdbe0df),
       ),
       activeStepTextColor: AppColors.mainColor,
       finishedStepTextColor: AppColors.mainColor,
